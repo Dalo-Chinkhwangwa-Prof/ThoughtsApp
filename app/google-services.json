@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "50393793597",
+    "firebase_url": "https://mythoughts-12312.firebaseio.com",
+    "project_id": "mythoughts-12312",
+    "storage_bucket": "mythoughts-12312.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50393793597:android:84c054786389515c965654",
+        "android_client_info": {
+          "package_name": "com.illicitintelligence.mythoughts"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "50393793597-v94uqtp6kknc72jm8142hoqnav1k45bp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.illicitintelligence.mythoughts",
+            "certificate_hash": "13dfcbbf3abcc07bb4946ca300975ad6d5366012"
+          }
+        },
+        {
+          "client_id": "50393793597-dtq9ctcktm0n62ch5tlfvqtrpqgg9929.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLZ1hUPo0dMGOHur6cugXoU8KE_B7Fd2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "50393793597-dtq9ctcktm0n62ch5tlfvqtrpqgg9929.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
