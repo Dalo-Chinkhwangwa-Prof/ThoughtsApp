@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">MyThoughts</string>
+    <string name="app_name">My Thoughts</string>
+    <string name="signup_screen_text">Sign Up Screen</string>
+    <string name="no_account">Not registered?</string>
+    <string name="logout_text">logout</string>
 </resources>

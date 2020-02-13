@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -152,7 +153,7 @@ public class UploadThoughtFragment extends Fragment {
     }
 
     private File createTemporaryFile() throws IOException {
-
+        Log.d("TAG_X", "Creating temporary file.");
         String date = new SimpleDateFormat("mm_dd_yyyy_hh_mm_ss", Locale.US).format(new Date());
         String imageName = FirebaseAuth.getInstance().getCurrentUser().getUid()+date;
 
@@ -164,16 +165,21 @@ public class UploadThoughtFragment extends Fragment {
                 fileDirectory);
 
         storedImageDirectory = imageFile.getAbsolutePath();
+        Log.d("TAG_X", "Created temporary file and returning.");
         return imageFile;
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_CODE && data != null) {
 
+        Log.d("TAG_X", "inside onActivityResult. "+data);
+        if (requestCode == REQUEST_CODE) {
+
+            Log.d("TAG_X", "Request code match, data is not null.");
 
             Bitmap capturedImage = BitmapFactory.decodeFile(storedImageDirectory);
+            Log.d("TAG_X", "Processed image.");
 
             if (capturedImage != null) {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();

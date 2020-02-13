@@ -4,5 +4,4 @@
         android:state_pressed="true" />
     <item android:drawable="@drawable/upload_button_unselected"
         android:state_pressed="false" />
-
 </selector>

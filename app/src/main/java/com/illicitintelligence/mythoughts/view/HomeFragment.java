@@ -1,21 +1,26 @@
 package com.illicitintelligence.mythoughts.view;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.view.ContextThemeWrapper;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +41,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.illicitintelligence.mythoughts.Adapter.ThoughtAdapter;
-import com.illicitintelligence.mythoughts.BuildConfig;
 import com.illicitintelligence.mythoughts.R;
 import com.illicitintelligence.mythoughts.model.Thought;
 
@@ -48,7 +52,27 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.logout_item:
+                showLogoutDialog();
+                break;
+            case R.id.profile_settings:
+//                TODO: profile settings
+                break;
+        }
+
+        return true;
+    }
+
+    interface HomeController {
+        void signOut();
+    }
+
+    private HomeController homeController;
 
     private final int CAMERA_REQUEST_CODE = 777;
 
@@ -123,6 +147,37 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    @OnClick(R.id.menu_options_home)
+    public void logoutUser(View view) {
+
+        PopupMenu menu = new PopupMenu(getContext(), view);
+        MenuInflater menuInflater = menu.getMenuInflater();
+        menuInflater.inflate(R.menu.home_menu, menu.getMenu());
+        menu.setOnMenuItemClickListener(this);
+        menu.show();
+
+    }
+
+    private void showLogoutDialog() {
+        new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.AppTheme))
+                .setMessage("Are you sure you want to logout?")
+                .setNegativeButton("No", (dialog, which) -> {
+                    dialog.dismiss();
+                })
+                .setPositiveButton("Yes", ((dialog, which) ->
+                {
+                    homeController.signOut();
+                }
+                ))
+                .create()
+                .show();
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        homeController = (HomeController) context;
+    }
 
     @OnClick(R.id.username_textview)
     public void onClickText(View view) {

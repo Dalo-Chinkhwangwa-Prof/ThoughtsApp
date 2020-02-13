@@ -1,11 +1,55 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorBlack</item>
+    </style>
+
+    <style name="ApLogo">
+        <item name="android:textSize">32sp</item>
+        <item name="android:fontFamily">@font/pac_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="AppButton">
+        <item name="android:fontFamily">@font/valera_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/button_background</item>
+        <item name="android:textColor">@drawable/text_color</item>
+    </style>
+
+    <style name="HeaderText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/valera_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="InfoText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/valera_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
+
+    <style name="RegularText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/valera_regular</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textColorHint">@color/colorBlackAlpha</item>
+        <item name="android:backgroundTint">@color/colorBlack</item>
+    </style>
+
+    <style name="LinkText">
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">@font/valera_regular</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
 </resources>
